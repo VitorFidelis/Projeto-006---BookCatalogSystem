@@ -3,9 +3,11 @@
 # 📚 API REST - Catálogo de Livros
 
 ![Java](https://img.shields.io/badge/Java-21-blue?logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=spring)
+[![Maven](https://img.shields.io/badge/Maven-Build-blue?logo=apachemaven)](https://maven.apache.org/)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.3-brightgreen?logo=spring)
 ![Arquitetura](https://img.shields.io/badge/Clean%20Architecture-implementado-blueviolet)
 ![Status](https://img.shields.io/badge/Projeto-Em%20Desenvolvimento-yellow)
+
 
 ---
 
@@ -39,7 +41,7 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 ## 🛠️ Tecnologias e Ferramentas
 
 - Java 21+
-- Spring Boot 3.x
+- Spring Boot 3.5.3
 - Spring Web
 - Spring Data JPA
 - H2 Database
