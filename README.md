@@ -101,6 +101,31 @@ A API estará disponível em: http://localhost:8080/livros
 
 ---
 
+## 🗄️ Acessar H2 Database (Console Web)
+
+Durante a execução da aplicação, você pode acessar a interface gráfica do banco de dados em memória (H2) através da seguinte URL:
+
+🔗 http://localhost:8080/h2-console
+
+#### ✅ Configurações de acesso
+
+| Campo          | Valor                             |
+|----------------|-----------------------------------|
+| JDBC URL       | `jdbc:h2:mem:BookCatalogSystem`   |
+| User Name      | `root`                            |
+| Password       | `123`                             |
+| Driver Class   | `org.h2.Driver`                   |
+
+
+⚠️ O acesso ao console H2 precisa estar habilitado no application.properties:
+
+```bash
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+```
+
+---
+
 ## 👨‍💻 Autor
 
 Desenvolvido por Vitor Fidelis
