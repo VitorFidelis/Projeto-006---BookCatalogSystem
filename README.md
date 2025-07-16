@@ -88,7 +88,7 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seuusuario/catalogo-livros-clean-architecture.git
+git clone https://github.com/VitorFidelis/Projeto-006---BookCatalogSystem.git
 cd catalogo-livros-clean-architecture
 ````
 
