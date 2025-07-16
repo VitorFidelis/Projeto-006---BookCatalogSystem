@@ -71,7 +71,7 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 ├── controller    →
 └── dto           →
 ````
-
+---
 
 ## 🔗 Endpoints de exemplo
 
@@ -83,6 +83,7 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 | PUT    | `/livros/{id}`   | Atualiza livro existente   |
 | DELETE | `/livros/{id}`   | Remove um livro por ID     |
 
+---
 
 ## ▶️ Como executar o projeto
 
@@ -100,6 +101,7 @@ cd catalogo-livros-clean-architecture
 ````
 A API estará disponível em: http://localhost:8080/livros
 
+---
 
 ## 👨‍💻 Autor
 
