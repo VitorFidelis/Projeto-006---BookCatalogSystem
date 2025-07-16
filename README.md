@@ -51,25 +51,21 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 
 ```text
 📁 domain
-├── model         → 
-└── repository    → 
+├── model       → Livro
+└── repository  → LivroRepository
 
 📁 application
-└── usecase       → 
+└── usecase    → CreateLivroUseCase, DeleteLivroUseCase,  UpdateLivroUseCase
 
 📁 infrastructure
-├── repository
-│   ├── entity    → 
-│   └── impl      → 
-└── config        → 
+├── mapper     → LivroMapper
+├── entities   → LivroEntity
+└── repository → LivroRepositoryImp, LivroSpringDataRepository
+
 
 📁 interface
-├── controller    → 
-└── dto           → 
-
-📁 interface
-├── controller    →
-└── dto           →
+├── controller  → LivroController
+└── dto         → SaveLivroDto, UpdateLivroDto
 ````
 ---
 
