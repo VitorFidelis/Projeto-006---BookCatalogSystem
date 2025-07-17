@@ -64,7 +64,6 @@ A API permite realizar operações CRUD completas sobre livros, incluindo cadast
 ├── entities   → LivroEntity
 └── repository → LivroRepositoryImp, LivroSpringDataRepository
 
-
 📁 interface
 ├── controller  → LivroController
 └── dto         → SaveLivroDto, UpdateLivroDto
