@@ -25,11 +25,12 @@ public class DeleteLivroUseCase {
      * */
     public void execute(UUID inputId) {
         try {
-            var validaId = this.livroRepositoryImp.findById(inputId);
+            var validaId = this.livroRepositoryImp.findById(inputId).getId();
+            this.livroRepositoryImp.delete(validaId);
 
         }catch (RuntimeException exception){
             throw new NaoEncontradoException("iD não encotrado: " + exception.getMessage());
         }
-        this.livroRepositoryImp.delete(inputId);
+
     }
 }
