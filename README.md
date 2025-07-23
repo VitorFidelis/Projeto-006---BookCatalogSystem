@@ -122,7 +122,34 @@ Durante a execução da aplicação, você pode acessar a interface gráfica do 
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 ```
+---
 
+## 📬 Postman – Como Importar a Collection
+
+### 1. Baixar os arquivos necessários
+
+   BookCatalogSystem.postman_collection.json → Collection com os endpoints.
+   
+### 2. Instalar o Postman (se ainda não tiver)
+   
+  Acesse o site oficial e baixe o instalador:
+   
+  🔗 https://www.postman.com/downloads/
+   
+### 3. Importar a collection
+
+  1. Abra o Postman.
+  
+  2. Clique em "Import" (no canto superior esquerdo).
+  
+  3. Vá até a aba "File".
+  
+  4. Clique em "Upload Files".
+  
+  5. Selecione o arquivo BookCatalogSystem.postman_collection.json.
+  
+  6. Clique em "Import".
+     
 ---
 
 ## 👨‍💻 Autor
