@@ -128,7 +128,7 @@ spring.h2.console.path=/h2-console
 
 ### 1. Baixar os arquivos necessários
 
-   BookCatalogSystem.postman_collection.json → Collection com os endpoints.
+  [BookCatalogSystem.postman_collection.json](BookCatalogSystem/guide/postman-collection) → Collection com os endpoints.
    
 ### 2. Instalar o Postman (se ainda não tiver)
    
