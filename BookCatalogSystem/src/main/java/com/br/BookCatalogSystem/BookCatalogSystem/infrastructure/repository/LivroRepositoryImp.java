@@ -2,26 +2,32 @@ package com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.repository;
 
 import com.br.BookCatalogSystem.BookCatalogSystem.domain.model.Livro;
 import com.br.BookCatalogSystem.BookCatalogSystem.domain.repository.LivroRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.mapper.LivroMapper;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Repository
 public class LivroRepositoryImp implements LivroRepository {
 
     private final LivroSpringDataRepository livroSpringDataRepository;
+    private final LivroMapper livroMapper;
 
-    public LivroRepositoryImp(LivroSpringDataRepository livroSpringDataRepository) {
+    public LivroRepositoryImp(
+            final LivroSpringDataRepository livroSpringDataRepository,
+            final LivroMapper livroMapper
+    ) {
 
         this.livroSpringDataRepository = livroSpringDataRepository;
+        this.livroMapper = livroMapper;
     }
 
     @Override
     public void save(Livro input) {
-        var entity = LivroMapper.toLivroEntity(input);
+        var entity = this.livroMapper.toLivroEntity(input);
         this.livroSpringDataRepository.save(entity);
     }
 
@@ -32,23 +38,20 @@ public class LivroRepositoryImp implements LivroRepository {
 
     @Override
     public Livro update(Livro livro) {
-        var entity = LivroMapper.toLivroEntity(livro);
+        var entity = this.livroMapper.toLivroEntity(livro);
         var update = this.livroSpringDataRepository.save(entity);
-        return LivroMapper.toDomain(update);
+        return this.livroMapper.toDomain(update);
     }
 
     @Override
     public Livro findById(UUID inputId) {
-        var teste = this.livroSpringDataRepository.findById(inputId).get();
-        return LivroMapper.toDomain(teste);
+        var livroEntity = this.livroSpringDataRepository.findById(inputId).get();
+        return this.livroMapper.toDomain(livroEntity);
     }
 
     @Override
-    public List<Livro> findAll() {
-        return this.livroSpringDataRepository
-                .findAll()
-                .stream()
-                .map(LivroMapper::toDomain)
-                .collect(Collectors.toList());
+    public List<Livro> findAll(Pageable pageable) {
+        var pageLivroEntity = this.livroSpringDataRepository.findAll(pageable);
+        return this.livroMapper.toLivrosPageDomain(pageLivroEntity);
     }
 }

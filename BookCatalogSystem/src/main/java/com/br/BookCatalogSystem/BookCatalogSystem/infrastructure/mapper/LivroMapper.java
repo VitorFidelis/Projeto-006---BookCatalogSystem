@@ -2,7 +2,11 @@ package com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.mapper;
 
 import com.br.BookCatalogSystem.BookCatalogSystem.domain.model.Livro;
 import com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.entities.LivroEntity;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Classe utilitária que realiza a conversão entre o modelo de domínio {@link Livro}
@@ -21,7 +25,7 @@ public class LivroMapper {
      * @param livro Objeto do modelo de domínio Livro.
      * @return Entidade JPA LivroEntity equivalente, pronta para ser salva no banco.
      */
-    public static LivroEntity toLivroEntity(final Livro livro) {
+    public LivroEntity toLivroEntity(final Livro livro) {
         return new LivroEntity(
                 livro.getId(),
                 livro.getTitulo(),
@@ -40,12 +44,29 @@ public class LivroMapper {
      * @param livroEntity -> Entidade JPA representando os dados do livro no banco.
      * @return -> Objeto Livro do modelo de domínio.
      */
-    public static Livro toDomain(final LivroEntity livroEntity) {
+    public Livro toDomain(final LivroEntity livroEntity) {
         return new Livro(
                 livroEntity.getId(),
                 livroEntity.getTitulo(),
                 livroEntity.getAutor(),
                 livroEntity.getIsbn()
         );
+    }
+
+    /**
+     * <h1>Metodo toLivrosPageDomain<h1/>
+     * <p>
+     *     Converte uma entidade JPA Page<LivroEntity> em uma lista Livro de livro.
+     *     Esse método é utilizado para adaptar os dados vindos da camada de persistência
+     *     (banco de dados) para o modelo de domínio usado na aplicação.
+     * <p/>
+     * @param livroEntityPage -> Entidade JPA do tipo Page<> representando os livros no banco.
+     * @return -> retorna uma lista de livros
+     */
+    public List<Livro> toLivrosPageDomain(Page<LivroEntity> livroEntityPage) {
+        return livroEntityPage
+                .stream()
+                .map(this::toDomain)
+                .collect(Collectors.toList());
     }
 }
