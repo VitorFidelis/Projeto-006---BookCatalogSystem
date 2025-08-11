@@ -50,7 +50,7 @@ public class LivroRepositoryImp implements LivroRepository {
     }
 
     @Override
-    public List<Livro> findAll(Pageable pageable) {
+    public Page<Livro> findAll(Pageable pageable) {
         var pageLivroEntity = this.livroSpringDataRepository.findAll(pageable);
         return this.livroMapper.toLivrosPageDomain(pageLivroEntity);
     }

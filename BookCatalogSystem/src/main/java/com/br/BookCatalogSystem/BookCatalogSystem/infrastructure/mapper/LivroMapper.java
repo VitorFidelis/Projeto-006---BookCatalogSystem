@@ -63,10 +63,7 @@ public class LivroMapper {
      * @param livroEntityPage -> Entidade JPA do tipo Page<> representando os livros no banco.
      * @return -> retorna uma lista de livros
      */
-    public List<Livro> toLivrosPageDomain(Page<LivroEntity> livroEntityPage) {
-        return livroEntityPage
-                .stream()
-                .map(this::toDomain)
-                .collect(Collectors.toList());
+    public Page<Livro> toLivrosPageDomain(Page<LivroEntity> livroEntityPage) {
+        return livroEntityPage.map(this::toDomain);
     }
 }

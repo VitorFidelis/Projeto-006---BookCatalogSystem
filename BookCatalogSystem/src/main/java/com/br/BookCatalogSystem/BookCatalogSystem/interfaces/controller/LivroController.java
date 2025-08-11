@@ -5,6 +5,7 @@ import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroResponse;
 
 import jakarta.validation.Valid;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -150,7 +151,7 @@ public class LivroController {
      * @return -> retorna status code(200) e uma lista de Livros do tipo DTO;
      */
     @GetMapping
-    public ResponseEntity<List<LivroResponse>> findAllLivros(
+    public ResponseEntity<Page<LivroResponse>> findAllLivros(
              @PageableDefault(size = 3, sort = {"titulo"}) final Pageable pageable
     ) {
         return ResponseEntity

@@ -1,8 +1,12 @@
 package com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto;
 
 public record LivroRequest(
-        String titulo,
         String autor,
-        String isbn
+        String isbn,
+        String titulo
+
 ) {
+    public LivroRequest (CreateLivroDto createLivroDto) {
+        this(createLivroDto.autor(), createLivroDto.isbn(), createLivroDto.titulo());
+    }
 }

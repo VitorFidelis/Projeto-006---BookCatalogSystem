@@ -66,10 +66,7 @@ public class LivroDtoMapper {
      * @param livroPage -> Lista de objetos do modelo de domínio Livro.
      * @return -> Lista de DTOs ListaLivrosResponse prontos para envio na resposta HTTP.
      */
-    public List<LivroResponse> listaLivrosResponse(List<Livro> livroPage) {
-        return livroPage
-                .stream()
-                .map(this::toLivroResponse)
-                .collect(Collectors.toList());
+    public Page<LivroResponse> listaLivrosResponse(Page<Livro> livroPage) {
+        return livroPage.map(LivroResponse::new);
     }
 }

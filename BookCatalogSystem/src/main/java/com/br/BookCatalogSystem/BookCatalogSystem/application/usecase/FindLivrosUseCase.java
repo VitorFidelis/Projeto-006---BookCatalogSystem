@@ -12,7 +12,6 @@ import java.util.List;
 
 @Service
 public class FindLivrosUseCase {
-
     private final LivroRepositoryImp livroRepositoryImp;
     private final LivroDtoMapper livroDtoMapper;
 
@@ -24,7 +23,7 @@ public class FindLivrosUseCase {
         this.livroDtoMapper = livroDtoMapper;
     }
 
-    public List<LivroResponse> execute(Pageable pageable) {
+    public Page<LivroResponse> execute(Pageable pageable) {
         var listDomainLivro = this.livroRepositoryImp.findAll(pageable);
         return this.livroDtoMapper.listaLivrosResponse(listDomainLivro);
     }

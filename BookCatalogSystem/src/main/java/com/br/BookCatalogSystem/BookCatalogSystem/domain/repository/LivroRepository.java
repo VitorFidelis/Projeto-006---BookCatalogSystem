@@ -14,5 +14,5 @@ public interface LivroRepository {
     void delete(final UUID inputId);
     Livro update(final Livro livro);
     Livro findById(final UUID inputId);
-    List<Livro> findAll(Pageable pageable);
+    Page<Livro> findAll(Pageable pageable);
 }
