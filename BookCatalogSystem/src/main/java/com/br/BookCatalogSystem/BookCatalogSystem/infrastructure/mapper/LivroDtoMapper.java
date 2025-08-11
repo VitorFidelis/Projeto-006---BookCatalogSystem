@@ -1,13 +1,16 @@
 package com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.mapper;
 
 import com.br.BookCatalogSystem.BookCatalogSystem.domain.model.Livro;
-import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.ListaLivrosResponse;
+import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.CreateLivroDto;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroRequest;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 /**
  * Classe utilitária responsável pela conversão entre objetos de transferência de dados (DTOs)
@@ -27,12 +30,12 @@ public class LivroDtoMapper {
      * @param livroRequest -> Objeto contendo os dados recebidos na requisição HTTP.
      * @return -> Instância da entidade Livro pronta para ser usada no domínio (ex: salvar, validar, etc).
      */
-    public Livro toDomain(final LivroRequest livroRequest) {
-        return new Livro(
-                livroRequest.titulo(),// TITULO recebido do DTO
-                livroRequest.autor(),// AUTOR recebido do DTO
-                livroRequest.isbn()// ISBN recebido do DTO
-                );
+    public CreateLivroDto toCreateLivroDto(final LivroRequest livroRequest) {
+        return new CreateLivroDto(
+                livroRequest.titulo(),
+                livroRequest.autor(),
+                livroRequest.isbn()
+        );
     }
 
     /**
@@ -45,7 +48,7 @@ public class LivroDtoMapper {
      * @param livro -> Entidade de domínio contendo os dados do livro.
      * @return -> Objeto LivroResponse com os dados formatados para resposta HTTP.
      */
-    public LivroResponse livroResponse(final Livro livro){
+    public LivroResponse toLivroResponse(final Livro livro) {
         return new LivroResponse(
                 livro.getTitulo(),// TITULO do Dominio
                 livro.getAutor(),// AUTOR do Dominio
@@ -60,16 +63,13 @@ public class LivroDtoMapper {
      * Cada objeto Livro é transformado em um ListaLivrosResponse contendo os campos:
      * ID, título, autor e ISBN. Esse método é útil para retornar dados de listagens na API.
      * <p/>
-     * @param livros -> Lista de objetos do modelo de domínio Livro.
+     * @param livroPage -> Lista de objetos do modelo de domínio Livro.
      * @return -> Lista de DTOs ListaLivrosResponse prontos para envio na resposta HTTP.
      */
-    public List<ListaLivrosResponse> listaLivrosResponse(final List<Livro> livros) {
-        return livros.stream()
-                .map(livro -> new ListaLivrosResponse(
-                        livro.getId(),// ID do Dominio
-                        livro.getTitulo(),// TITULO do Dominio
-                        livro.getAutor(),// AUTOR do Dominio
-                        livro.getIsbn()))// ISBN do Dominio
+    public List<LivroResponse> listaLivrosResponse(List<Livro> livroPage) {
+        return livroPage
+                .stream()
+                .map(this::toLivroResponse)
                 .collect(Collectors.toList());
     }
 }
