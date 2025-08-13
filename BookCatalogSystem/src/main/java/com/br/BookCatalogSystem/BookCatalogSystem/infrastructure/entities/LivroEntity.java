@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.validation.constraints.NotNull;
 
 
 import java.util.UUID;
@@ -27,21 +28,20 @@ public class LivroEntity {
     @Column(length = 100, nullable = false)
     private String isbn;
 
+    @Column(nullable = false)
+    @NotNull
+    private Boolean ativo;
+
     public LivroEntity() {
 
     }
 
-    public LivroEntity(String titulo, String autor, String isbn) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.isbn = isbn;
-    }
-
-    public LivroEntity(UUID id, String titulo, String autor, String isbn) {
+    public LivroEntity(UUID id, String titulo, String autor, String isbn, Boolean ativo) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
+        this.ativo = true;
     }
 
     public UUID getId() {
@@ -58,5 +58,9 @@ public class LivroEntity {
 
     public String getIsbn() {
         return isbn;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
     }
 }

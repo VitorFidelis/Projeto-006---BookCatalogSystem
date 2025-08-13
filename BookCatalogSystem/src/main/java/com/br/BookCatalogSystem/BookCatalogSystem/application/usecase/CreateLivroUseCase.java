@@ -28,7 +28,7 @@ public class CreateLivroUseCase {
 
     /**
      * Metodo de inserir o livro.
-     * @param input -> recebe livro como parametro;
+     * @param livroRequest -> recebe DTO como parametro;
      * */
     public void execute(LivroRequest livroRequest) {
         Livro livro = new Livro();

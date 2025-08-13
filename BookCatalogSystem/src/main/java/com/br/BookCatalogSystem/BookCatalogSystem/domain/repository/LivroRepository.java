@@ -12,7 +12,10 @@ import java.util.UUID;
 public interface LivroRepository {
     void save(final Livro input);
     void delete(final UUID inputId);
+    void deactivate(final UUID inputDeactivateId);
+    void reactivate(final UUID inputReactivateId);
     Livro update(final Livro livro);
     Livro findById(final UUID inputId);
     Page<Livro> findAll(Pageable pageable);
+    Page<Livro> findAllLivrosAtivos(Pageable pageable);
 }

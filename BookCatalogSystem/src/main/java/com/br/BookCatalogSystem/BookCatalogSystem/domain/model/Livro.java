@@ -8,22 +8,25 @@ public class Livro {
     private String titulo;
     private String autor;
     private String isbn;
+    private Boolean ativo;
 
     public Livro() {
 
     }
 
-    public Livro(String titulo, String autor, String isbn) {
+    public Livro(String titulo, String autor, String isbn, Boolean ativo) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
+        this.ativo = ativo;
     }
 
-    public Livro(UUID id, String titulo, String autor, String isbn) {
+    public Livro(UUID id, String titulo, String autor, String isbn, Boolean ativo) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
+        this.ativo = ativo;
     }
 
     public UUID getId() {
@@ -52,5 +55,13 @@ public class Livro {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 }

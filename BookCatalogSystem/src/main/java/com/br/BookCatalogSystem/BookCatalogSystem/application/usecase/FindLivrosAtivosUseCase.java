@@ -1,22 +1,18 @@
 package com.br.BookCatalogSystem.BookCatalogSystem.application.usecase;
 
-import com.br.BookCatalogSystem.BookCatalogSystem.domain.model.Livro;
 import com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.mapper.LivroDtoMapper;
 import com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.repository.LivroRepositoryImp;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.ListarLivrosDto;
-import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class FindLivrosUseCase {
+public class FindLivrosAtivosUseCase {
     private final LivroRepositoryImp livroRepositoryImp;
     private final LivroDtoMapper livroDtoMapper;
 
-    public FindLivrosUseCase(
+    public FindLivrosAtivosUseCase(
             final LivroRepositoryImp livroRepositoryImp,
             final LivroDtoMapper livroDtoMapper
     ) {
@@ -25,7 +21,7 @@ public class FindLivrosUseCase {
     }
 
     public Page<ListarLivrosDto> execute(Pageable pageable) {
-        var listDomainLivro = this.livroRepositoryImp.findAll(pageable);
-        return this.livroDtoMapper.listaLivrosResponse(listDomainLivro);
+        var pageLivroModele = this.livroRepositoryImp.findAllLivrosAtivos(pageable);
+        return this.livroDtoMapper.listaLivrosResponse(pageLivroModele);
     }
 }

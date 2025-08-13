@@ -1,5 +1,6 @@
 package com.br.BookCatalogSystem.BookCatalogSystem.interfaces.controller;
 import com.br.BookCatalogSystem.BookCatalogSystem.application.usecase.*;
+import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.ListarLivrosDto;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroRequest;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroResponse;
 
@@ -10,44 +11,50 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("/livros")
 public class LivroController {
 
-    private final CreateLivroUseCase createLivroUsecCase;
+    private final CreateLivroUseCase createLivroUseCase;
     private final DeleteLivroUseCase deleteLivroUseCase;
+    private final DeactivateLivroUseCase deactivateLivroUseCase;
     private final UpdateLivroUseCase updateLivroUseCase;
     private final FindLivroUseCase findLivroUseCase;
     private final FindLivrosUseCase findLivrosUseCase;
+    private final FindLivrosAtivosUseCase findLivrosAtivosUseCase;
 
     /**
      * <h1>Construtor<h1/>
      * <p>
      *     Faz a injeção de dependencia dos casos de uso;</br>
      * <p/>
-     * @param createLivroUsecCase -> caso de uso para criação de um registro;
+     * @param createLivroUseCase -> caso de uso para criação de um registro;
      * @param updateLivroUseCase -> caso de uso para atualização de informações de um registro;
      * @param deleteLivroUseCase -> caso de uso para deleção de um registro na base de dados;
      * @param findLivroUseCase -> caso de uso para buscar um registro por ID;
      * @param findLivrosUseCase -> caso de uso para uma busca paginada dos registro na base de dados;
      */
     public LivroController(
-            final CreateLivroUseCase createLivroUsecCase,
+            final CreateLivroUseCase createLivroUseCase,
             final DeleteLivroUseCase deleteLivroUseCase,
+            final DeactivateLivroUseCase deactivateLivroUseCase,
             final UpdateLivroUseCase updateLivroUseCase,
             final FindLivroUseCase findLivroUseCase,
-            final FindLivrosUseCase findLivrosUseCase
+            final FindLivrosUseCase findLivrosUseCase,
+            final FindLivrosAtivosUseCase findLivrosAtivosUseCase
     ) {
-        this.createLivroUsecCase = createLivroUsecCase;
+        this.createLivroUseCase = createLivroUseCase;
         this.deleteLivroUseCase = deleteLivroUseCase;
+        this.deactivateLivroUseCase = deactivateLivroUseCase;
         this.updateLivroUseCase = updateLivroUseCase;
         this.findLivroUseCase = findLivroUseCase;
         this.findLivrosUseCase = findLivrosUseCase;
+        this.findLivrosAtivosUseCase = findLivrosAtivosUseCase;
     }
 
     /**
@@ -62,10 +69,11 @@ public class LivroController {
      * @return -> retorna status code(200) e no copor não retorna nada
      */
     @PostMapping
+    @Transactional
     public ResponseEntity<Void> createLivro(
             @RequestBody final @Valid LivroRequest input
     ) {
-        this.createLivroUsecCase.execute(input);
+        this.createLivroUseCase.execute(input);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .build();
@@ -82,12 +90,25 @@ public class LivroController {
      * @return -> retorna status code(200) e no copor não retorna nada
      */
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<Void> deleteLivro(
             @PathVariable ("id") final UUID inputId
     ) {
         this.deleteLivroUseCase.execute(inputId);
         return ResponseEntity
                 .status(HttpStatus.OK)
+                .build();
+    }
+
+
+    @PatchMapping("/activate={id}")
+    @Transactional
+    public ResponseEntity<Void> deactivateLivro(
+            @PathVariable("id") final UUID inputId
+    ){
+        this.deactivateLivroUseCase.execute(inputId);
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
                 .build();
     }
 
@@ -104,6 +125,7 @@ public class LivroController {
      * @return -> retorna status code(202) e no copor as informações do registro
      */
     @PutMapping("/{id}")
+    @Transactional
     public ResponseEntity<LivroResponse> updateLivro(
             @PathVariable("id") final UUID inputId,
             @RequestBody final LivroRequest input
@@ -151,11 +173,20 @@ public class LivroController {
      * @return -> retorna status code(200) e uma lista de Livros do tipo DTO;
      */
     @GetMapping
-    public ResponseEntity<Page<LivroResponse>> findAllLivros(
-             @PageableDefault(size = 3, sort = {"titulo"}) final Pageable pageable
+    public ResponseEntity<Page<ListarLivrosDto>> findAllLivros(
+             @PageableDefault(size = 5, sort = {"titulo"}) final Pageable pageable
     ) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(this.findLivrosUseCase.execute(pageable));
+    }
+
+    @GetMapping("/ativos")
+    public ResponseEntity<Page<ListarLivrosDto>> findAllLivrosAtivos(
+            @PageableDefault(size = 5, sort = {"titulo"}) final  Pageable pageable
+    ){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(this.findLivrosAtivosUseCase.execute(pageable));
     }
 }

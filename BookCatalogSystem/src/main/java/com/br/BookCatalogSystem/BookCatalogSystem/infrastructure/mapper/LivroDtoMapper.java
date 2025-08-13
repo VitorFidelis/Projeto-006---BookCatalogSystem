@@ -2,6 +2,7 @@ package com.br.BookCatalogSystem.BookCatalogSystem.infrastructure.mapper;
 
 import com.br.BookCatalogSystem.BookCatalogSystem.domain.model.Livro;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.CreateLivroDto;
+import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.ListarLivrosDto;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroRequest;
 import com.br.BookCatalogSystem.BookCatalogSystem.interfaces.dto.LivroResponse;
 import org.springframework.data.domain.Page;
@@ -52,7 +53,8 @@ public class LivroDtoMapper {
         return new LivroResponse(
                 livro.getTitulo(),// TITULO do Dominio
                 livro.getAutor(),// AUTOR do Dominio
-                livro.getIsbn() // ISBN do Dominio
+                livro.getIsbn(),
+                livro.getAtivo()// ATIVO do Dominio
         );
     }
 
@@ -66,7 +68,7 @@ public class LivroDtoMapper {
      * @param livroPage -> Lista de objetos do modelo de domínio Livro.
      * @return -> Lista de DTOs ListaLivrosResponse prontos para envio na resposta HTTP.
      */
-    public Page<LivroResponse> listaLivrosResponse(Page<Livro> livroPage) {
-        return livroPage.map(LivroResponse::new);
+    public Page<ListarLivrosDto> listaLivrosResponse(Page<Livro> livroPage) {
+        return livroPage.map(ListarLivrosDto::new);
     }
 }

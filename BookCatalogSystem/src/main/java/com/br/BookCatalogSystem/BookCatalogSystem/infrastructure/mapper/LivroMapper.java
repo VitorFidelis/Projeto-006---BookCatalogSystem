@@ -30,7 +30,8 @@ public class LivroMapper {
                 livro.getId(),
                 livro.getTitulo(),
                 livro.getAutor(),
-                livro.getIsbn()
+                livro.getIsbn(),
+                livro.getAtivo()
         );
     }
 
@@ -49,7 +50,8 @@ public class LivroMapper {
                 livroEntity.getId(),
                 livroEntity.getTitulo(),
                 livroEntity.getAutor(),
-                livroEntity.getIsbn()
+                livroEntity.getIsbn(),
+                livroEntity.getAtivo()
         );
     }
 
