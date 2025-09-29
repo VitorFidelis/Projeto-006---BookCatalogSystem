@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "5faca6c6-b8a6-46ce-b740-3e7f00f65fea",
+		"name": "BookCatalogSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43827028",
+		"_collection_link": "https://vitorfidelis-6408437.postman.co/workspace/Vitor-Fidelis's-Workspace~cc0e5aac-a4db-444f-8d99-abd2609e9db7/collection/43827028-5faca6c6-b8a6-46ce-b740-3e7f00f65fea?action=share&source=collection_link&creator=43827028"
+	},
+	"item": [
+		{
+			"name": "Autor",
+			"item": [
+				{
+					"name": "CreateAutor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"Gustavo\",\n    \"sobrenome\": \"Silva\",\n    \"cpf\": \"44635047845\",\n    \"contato\":{\n        \"email\": \"gustavo@gmail\",\n        \"telefone\": \"960700987\"\n    },\n    \"endereco\":{\n        \"rua\":\"Antonio Garcia\",\n        \"numero\": 440,\n        \"bairro\": \"santana\",\n        \"cidade\":\"Outro Preto\",\n        \"estado\": \"São paulo\",\n        \"cep\": \"68460388\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/autores",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAutorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/autores/{{$guid_ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"autores",
+								"{{$guid_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeactivateAutorById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/autores/{{$guid-ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"autores",
+								"{{$guid-ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReactivateAutorById",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/autores/reactivate/{{$guid-ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"autores",
+								"reactivate",
+								"{{$guid-ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAutorById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"Pedro\",\n    \"sobrenome\": \"Lucas\",\n    \"cpf\": \"44635047845\",\n    \"contato\":{\n        \"email\": \"pedro@gmail\",\n        \"telefone\": \"960700987\"\n    },\n    \"endereco\":{\n        \"rua\":\"Paulista silva\",\n        \"numero\": 550,\n        \"bairro\": \"Paulista\",\n        \"cidade\":\"São Paulo\",\n        \"estado\": \"SP\",\n        \"cep\": \"68460200\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/autores/{{$guid-ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"autores",
+								"{{$guid-ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:8080",
+			"type": "default"
+		}
+	]
+}

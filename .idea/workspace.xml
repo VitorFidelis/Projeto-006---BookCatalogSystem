@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dbf4aaec-aa5f-4d83-940c-b67fa32a97a8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/DeactivateAutorUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/FindAutorAllUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/FindAutorIdUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/ReactivateAutorUserCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/UpdateAutorUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/model/autor/AutorModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/model/autor/ContatoAutorModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/model/autor/EnderecoAutorModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/model/editora/EditoraModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/repository/autor/AutorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/repository/autor/ContatoAutorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/entities/autor/AutorEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/entities/autor/ContatoAutorEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/entities/autor/EnderecoAutorEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/entities/editora/EditoraEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/autor/AutorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/autor/AutorMapperDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/autor/ContatoAutorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/autor/EnderecoAutorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/repository/autor/AutorSpringRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/repository/autor/AutorSpringRepositoryImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/sprindoc/SpringDocConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/controller/autor/AutorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/AutorRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/AutorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/CreateAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/DadosAutorDetalhadoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/UpdateAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/contato/ContatoAutorRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/contato/CreateContatoAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/contato/DadosContatoAutorDetalhadoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/contato/UpdateContatoAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/endereco/CreateEnderecoAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/endereco/DadosEnderecoAutorDetalhadoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/endereco/EnderecoAutorRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/presentation/dto/autor/endereco/UpdateEnderecoAutorDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/resources/application-springdoc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/guide/postman-collection/BookCatalogSystem.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BookCatalogSystem/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/CreateLivroUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/DeactivateLivroUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/DeleteLivroUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/FindLivroUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/FindLivrosAtivosUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/FindLivrosUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/ReactivateLivroUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/autor/CreateAutorUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/application/usecase/UpdateLivroUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/model/Livro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/domain/repository/LivroRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/entities/LivroEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/LivroDtoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/mapper/LivroMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/repository/LivroRepositoryImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/infrastructure/repository/LivroSpringDataRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/interfaces/controller/LivroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/interfaces/dto/CreateLivroDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/interfaces/dto/ListarLivrosDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/interfaces/dto/LivroRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/java/com/br/BookCatalogSystem/BookCatalogSystem/interfaces/dto/LivroResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BookCatalogSystem/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookCatalogSystem/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BookCatalogSystem/target/classes/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="30v5DGWcCdruk5bkNVW0SPyQK4h" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BookCatalogSystemApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;refactor-usecase-createlivro&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/family/Documentos/VitorFidelis/coisas-vitor/projetos-spring/Projeto-006---BookCatalogSystem&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbf4aaec-aa5f-4d83-940c-b67fa32a97a8" name="Changes" comment="" />
+      <created>1754495085113</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754495085113</updated>
+    </task>
+    <servers />
+  </component>
+</project>
