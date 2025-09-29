@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 /**
  * Exceções personalizadas que trata exceções globais,
@@ -42,12 +43,23 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleNaoEncontradoException(final NaoEncontradoException ex) {
         // Mapa com {Chave: valor} imutaveis, que retornara um JSON com informações do erro
         Map<String, Object> erros = Map.ofEntries(
-                Map.entry("message", ex.getMessage()),//mensagem definida onde foi laçado a exceção, mais a mensagem padrão do erro
+                Map.entry("Não encontrado:", ex.getMessage()),//mensagem definida onde foi laçado a exceção, mais a mensagem padrão do erro
                 Map.entry("status", String.valueOf(HttpStatus.NOT_FOUND.value())),// status code: pega o valor 400, transforma me string
                 Map.entry("timestamp", LocalDateTime.now()) // pega a informação da horario da maquina em data/hora/minutos/segundo em formato americano
         );
 
         // Retorna o mapa como JSON({chave: valor})com status 400
+        return new ResponseEntity<>(erros, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<Map<String, Object>> handleNoSuchElementException(final NoSuchElementException ex) {
+        Map<String, Object> erros = Map.ofEntries(
+                Map.entry("Elemento não encontrado: ", ex.getMessage()),
+                Map.entry("Status: ", String.valueOf(HttpStatus.NOT_FOUND.value())),
+                Map.entry("Timestamp: ", LocalDateTime.now())
+        );
+
         return new ResponseEntity<>(erros, HttpStatus.NOT_FOUND);
     }
 }
